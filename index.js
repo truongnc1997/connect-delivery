@@ -8,6 +8,10 @@ const port = 5000;
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send('connected')
+})
+
 app.post("/delivery/checkPrice", async function (req, res) {
   const { pick_province, pick_district, province, district, address, weight, value, transport } = req.body
   const api = `https://services.giaohangtietkiem.vn/services/shipment/fee?address=${encodeURIComponent(address)}&province=${encodeURIComponent(province)}&district=${encodeURIComponent(district)}&pick_province=${encodeURIComponent(pick_province)}&pick_district=${encodeURIComponent(pick_district)}&weight=${weight}&value=${value}&deliver_option=xteam&tags%5B%5D=1`
