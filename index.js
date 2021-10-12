@@ -13,8 +13,8 @@ app.get('/', (req, res) => {
 })
 
 app.post("/delivery/checkPrice", async function (req, res) {
-  const { pick_province, pick_district, province, district, address, weight, value, transport } = req.body
-  const api = `https://services.giaohangtietkiem.vn/services/shipment/fee?address=${encodeURIComponent(address)}&province=${encodeURIComponent(province)}&district=${encodeURIComponent(district)}&pick_province=${encodeURIComponent(pick_province)}&pick_district=${encodeURIComponent(pick_district)}&weight=${weight}&value=${value}&deliver_option=xteam&tags%5B%5D=1`
+  const { pick_province, pick_district, pick_ward, province, district, ward, address, weight, value, transport } = req.body
+  const api = `https://services.giaohangtietkiem.vn/services/shipment/fee?address=${encodeURIComponent(address)}&province=${encodeURIComponent(province)}&ward=${encodeURIComponent(ward)}&pick_ward=${encodeURIComponent(pick_ward)}&district=${encodeURIComponent(district)}&pick_province=${encodeURIComponent(pick_province)}&pick_district=${encodeURIComponent(pick_district)}&weight=${weight}&value=${value}&transport=${transport}&deliver_option=xteam&tags%5B%5D=1`
   await axios.get(api, {
     headers: {
       Token: '2071A81f29663256388844fed2035F29E8f2f0Fd',
